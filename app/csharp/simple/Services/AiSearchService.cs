@@ -22,7 +22,7 @@ namespace Simple.Services
         public SearchClient BuildSearchClient(string indexName)
         {
             var searchServiceName = Environment.GetEnvironmentVariable("AI_SEARCH_SERVICE_NAME");
-            var apiKey = Environment.GetEnvironmentVariable("AI_SEARCH_API_KEY");
+            var apiKey = HelperMethods.GetSecretFromKeyVault("ai-search-api-key"); //Environment.GetEnvironmentVariable("AI_SEARCH_API_KEY");
 
             if (string.IsNullOrEmpty(searchServiceName) || string.IsNullOrEmpty(indexName) || string.IsNullOrEmpty(apiKey))
             {
