@@ -38,7 +38,7 @@ namespace Simple.Services
         public AoaiService()
         {
             aoaiEndpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
-            aoaiApiKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
+            aoaiApiKey = HelperMethods.GetSecretFromKeyVault("azure-openai-api-key"); //Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
             aoaiApiVersion = Environment.GetEnvironmentVariable("AZURE_OPENAI_API_VERSION");
             aoaiDeployment = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT");      
             embeddingModel = "text-embedding-3-small";  
